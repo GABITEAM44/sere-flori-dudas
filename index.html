@@ -122,8 +122,9 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--green-dark);
+      color: #fff;
       line-height: 1.15;
+      transition: color var(--transition);
     }
 
     .nav-logo-text span {
@@ -133,6 +134,16 @@
       font-weight: 400;
       letter-spacing: .1em;
       text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      transition: color var(--transition);
+    }
+
+    /* Când navbar are fundal (după scroll) → text închis */
+    .navbar.scrolled .nav-logo-text {
+      color: var(--green-dark);
+    }
+
+    .navbar.scrolled .nav-logo-text span {
       color: var(--text-light);
     }
 
@@ -146,11 +157,18 @@
     .nav-links a {
       font-size: .875rem;
       font-weight: 500;
-      color: var(--text-mid);
+      color: rgba(255,255,255,.85);
       transition: color var(--transition);
     }
 
-    .nav-links a:hover { color: var(--green-mid); }
+    .nav-links a:hover { color: #fff; }
+
+    /* După scroll → link-uri închise */
+    .navbar.scrolled .nav-links a {
+      color: var(--text-mid);
+    }
+
+    .navbar.scrolled .nav-links a:hover { color: var(--green-mid); }
 
     .nav-cta {
       background: var(--green-mid);
