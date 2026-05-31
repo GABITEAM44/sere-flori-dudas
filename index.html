@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sere Flori Dudas – Producător local de flori și plante în Craiova. Mușcate, petunii, flori de grădină, plante la ghiveci. Livrare la domiciliu sau ridicare din seră." />
+  <meta name="keywords" content="sere flori Craiova, mușcate, petunii, flori de grădină, plante ghiveci, producător flori Craiova" />
+  <title>Sere Flori Dudas – Producător local de flori, Craiova</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:   #1a3d2b;
+      --green-mid:    #2d6a4f;
+      --green-light:  #52b788;
+      --green-pale:   #d8f3dc;
+      --cream:        #fdf8f0;
+      --warm-white:   #fffef9;
+      --gold:         #c9a84c;
+      --gold-light:   #f0d9a0;
+      --text-dark:    #1c1c1c;
+      --text-mid:     #444;
+      --text-light:   #888;
+      --radius:       12px;
+      --radius-lg:    20px;
+      --shadow-sm:    0 2px 12px rgba(0,0,0,.08);
+      --shadow-md:    0 6px 30px rgba(0,0,0,.12);
+      --shadow-lg:    0 16px 60px rgba(0,0,0,.16);
+      --transition:   .3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 10px;
+    }
+
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--green-dark);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    section { padding: 96px 0; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255,254,249,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.15;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--green-mid); }
+
+    .nav-cta {
+      background: var(--green-mid);
+      color: #fff !important;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-size: .85rem !important;
+      font-weight: 600 !important;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 24px; height: 2px;
+      background: var(--green-dark);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      background: var(--green-dark);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(26,61,43,.92) 0%, rgba(26,61,43,.6) 60%, rgba(45,106,79,.3) 100%),
+        url('images/flori-05.jpg') center/cover no-repeat;
+    }
+
+    .hero-decor {
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.08);
+      pointer-events: none;
+    }
+
+    .hero-decor::after {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 14px 28px;
+      border-radius: 50px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 20px rgba(82,183,136,.4);
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(82,183,136,.3);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,.5);
+      color: #fff;
+      font-weight: 500;
+      font-size: .95rem;
+      padding: 14px 28px;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.8);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 48px;
+      left: 0; right: 0;
+      z-index: 2;
+    }
+
+    .hero-stats-inner {
+      display: flex;
+      gap: 40px;
+    }
+
+    .stat {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.6);
+      letter-spacing: .05em;
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       MARQUEE STRIP
+    ============================================= */
+    .marquee-strip {
+      background: var(--green-mid);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,.9);
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .marquee-dot {
+      width: 5px; height: 5px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       PRODUCTS
+    ============================================= */
+    .products { background: var(--cream); }
+
+    .products-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-card-img {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-card-img img {
+      height: 100%;
+      transition: transform .6s ease;
+    }
+
+    .product-card:hover .product-card-img img { transform: scale(1.07); }
+
+    .product-card-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: var(--green-mid);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .product-card-body {
+      padding: 20px 22px 22px;
+    }
+
+    .product-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .product-card-desc {
+      font-size: .85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .product-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-card-season {
+      font-size: .75rem;
+      color: var(--green-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .product-card-season::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+
+    .product-card-btn {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--green-mid);
+      border: 1.5px solid var(--green-light);
+      padding: 6px 14px;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    .product-card-btn:hover {
+      background: var(--green-mid);
+      color: #fff;
+      border-color: var(--green-mid);
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .about { background: var(--warm-white); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+      height: 520px;
+    }
+
+    .about-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%;
+      height: 80%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 52%;
+      height: 50%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 5px solid var(--warm-white);
+    }
+
+    .about-badge {
+      position: absolute;
+      top: 50%; left: 60%;
+      transform: translate(-50%, -50%);
+      background: var(--gold);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      z-index: 2;
+    }
+
+    .about-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .about-badge-text {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      opacity: .9;
+    }
+
+    .about-content { padding-right: 20px; }
+
+    .about-features {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .about-feature-icon {
+      width: 44px; height: 44px;
+      background: var(--green-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .about-feature-title {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--green-dark);
+      margin-bottom: 2px;
+    }
+
+    .about-feature-desc {
+      font-size: .83rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       GALLERY
+    ============================================= */
+    .gallery { background: var(--green-dark); padding: 96px 0; }
+
+    .gallery-header { text-align: center; margin-bottom: 56px; }
+
+    .gallery-header .section-label { color: var(--green-light); }
+
+    .gallery-header h2 { color: #fff; }
+
+    .gallery-header .section-desc {
+      color: rgba(255,255,255,.6);
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 240px 240px;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-item img {
+      height: 100%;
+      transition: transform .6s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,61,43,.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-overlay-icon {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .gallery-item--tall { grid-row: span 2; }
+    .gallery-item--wide { grid-column: span 2; }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    .how { background: var(--cream); }
+
+    .how-header { text-align: center; margin-bottom: 64px; }
+
+    .how-header .section-desc { margin: 0 auto; }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-pale), var(--green-pale), transparent);
+    }
+
+    .how-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .how-step-num {
+      width: 72px; height: 72px;
+      background: #fff;
+      border: 2px solid var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-mid);
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .how-step-title {
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .how-step-desc {
+      font-size: .83rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .testimonials { background: var(--warm-white); }
+
+    .testimonials-header { text-align: center; margin-bottom: 56px; }
+
+    .testimonials-header .section-desc { margin: 0 auto; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 3rem;
+      line-height: .8;
+      color: var(--green-pale);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      font-size: .9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: .85rem;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .85rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--green-dark);
+    }
+
+    .testimonial-loc {
+      font-size: .75rem;
+      color: var(--text-light);
+    }
+
+    /* =============================================
+       CTA BANNER
+    ============================================= */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '🌸';
+      position: absolute;
+      top: -20px; right: 80px;
+      font-size: 160px;
+      opacity: .06;
+    }
+
+    .cta-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: #fff;
+      line-height: 1.3;
+      max-width: 540px;
+    }
+
+    .cta-banner h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 15px 28px;
+      border-radius: 50px;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+    }
+
+    .btn-wa:hover {
+      background: #1ebe5c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,211,102,.4);
+    }
+
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: #fff;
+      font-weight: 500;
+      font-size: .95rem;
+      padding: 15px 28px;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    .btn-call:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.8);
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .contact { background: var(--cream); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info { padding-top: 8px; }
+
+    .contact-items { margin-top: 36px; display: flex; flex-direction: column; gap: 24px; }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-item-icon {
+      width: 48px; height: 48px;
+      background: var(--green-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 3px;
+    }
+
+    .contact-item-value {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    .contact-item-value a {
+      transition: color var(--transition);
+    }
+
+    .contact-item-value a:hover { color: var(--green-light); }
+
+    .contact-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .social-btn {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover { background: var(--green-mid); }
+
+    .contact-form {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--green-dark);
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group:last-of-type { margin-bottom: 24px; }
+
+    .form-group label {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1.5px solid #e8e8e8;
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: .9rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--warm-white);
+      outline: none;
+      transition: border-color var(--transition);
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-light);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--green-mid);
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.7);
+      padding: 64px 0 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+
+    .footer-brand-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-brand-desc {
+      font-size: .83rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-col h4 {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: .83rem;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--green-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p { font-size: .78rem; }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-bottom-links a { font-size: .78rem; transition: color var(--transition); }
+    .footer-bottom-links a:hover { color: var(--green-light); }
+
+    /* =============================================
+       FLOATING WHATSAPP
+    ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .wa-tooltip {
+      background: #fff;
+      color: var(--text-dark);
+      font-size: .82rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 50px;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+    .wa-btn {
+      width: 58px; height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.5);
+      transition: var(--transition);
+      font-size: 1.5rem;
+    }
+
+    .wa-btn::after {
+      content: '';
+      position: absolute;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: rgba(37,211,102,.3);
+      animation: wa-pulse 2s ease-out infinite;
+    }
+
+    @keyframes wa-pulse {
+      0% { transform: scale(1); opacity: .8; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .wa-btn:hover { background: #1ebe5c; transform: scale(1.08); }
+
+    /* =============================================
+       MOBILE NAV
+    ============================================= */
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      background: var(--warm-white);
+      z-index: 999;
+      padding: 90px 32px 32px;
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.77,0,.175,1);
+    }
+
+    .mobile-nav.open { transform: translateX(0); }
+
+    .mobile-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 14px 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      border-bottom: 1px solid #f0f0f0;
+      transition: color var(--transition);
+    }
+
+    .mobile-nav a:hover { color: var(--green-mid); }
+
+    .mobile-nav .nav-cta {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      padding: 14px 28px;
+      color: #fff !important;
+      border: none;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-images { height: 380px; }
+      .about-content { padding-right: 0; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+      .how-steps::before { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item--wide { grid-column: span 1; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-stats-inner { gap: 24px; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item--tall { grid-row: span 1; }
+      .cta-banner-inner { flex-direction: column; text-align: center; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-stats-inner { flex-wrap: wrap; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">🌸</div>
+      <div class="nav-logo-text">
+        Sere Flori Dudas
+        <span>Producător local · Craiova</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#produse">Produse</a></li>
+      <li><a href="#despre">Despre noi</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="https://wa.me/40770881974?text=Bună ziua! Doresc informații despre florile disponibile." class="nav-cta" target="_blank" rel="noopener">
+          📱 Comandă acum
+        </a>
+      </li>
+    </ul>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#produse" onclick="toggleMenu()">Produse</a></li>
+      <li><a href="#despre" onclick="toggleMenu()">Despre noi</a></li>
+      <li><a href="#galerie" onclick="toggleMenu()">Galerie</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/40770881974" class="nav-cta" style="background:var(--green-mid);color:#fff;border-radius:50px;display:block;text-align:center;margin-top:24px;padding:14px;" target="_blank">📱 Comandă pe WhatsApp</a>
+  </div>
+
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="acasa">
+    <div class="hero-bg"></div>
+    <div class="hero-decor"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Producător direct din seră</div>
+
+        <h1>
+          Flori proaspete,<br />
+          <em>crescute cu pasiune</em><br />
+          în Craiova
+        </h1>
+
+        <p class="hero-sub">
+          Mușcate, petunii, flori de grădină și plante la ghiveci – direct din sera noastră la masa ta. Livrare în Craiova și împrejurimi sau ridicare personală.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/40770881974?text=Bună ziua! Vreau să comand flori. Ce aveți disponibil?" class="btn-primary" target="_blank" rel="noopener">
+            📱 Comandă pe WhatsApp
+          </a>
+          <a href="#produse" class="btn-outline">
+            🌿 Vezi produsele
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="container">
+        <div class="hero-stats-inner">
+          <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">ani de experiență</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">soiuri de flori</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">clienți mulțumiți</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4 sezoane</div>
+            <div class="stat-label">disponibilitate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== MARQUEE ========== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <!-- doubled for seamless loop -->
+      <span class="marquee-item"><span class="marquee-dot"></span>Mușcate</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Petunii</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Flori de grădină</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Plante suspendate</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Crizanteme</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Begonii</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Impatiens</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Lavandă</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Producător local Craiova</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Livrare la domiciliu</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Mușcate</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Petunii</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Flori de grădină</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Plante suspendate</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Crizanteme</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Begonii</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Impatiens</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Lavandă</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Producător local Craiova</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Livrare la domiciliu</span>
+    </div>
+  </div>
+
+
+  <!-- ========== PRODUCTS ========== -->
+  <section class="products" id="produse">
+    <div class="container">
+      <div class="products-header">
+        <div>
+          <p class="section-label">Oferta noastră</p>
+          <h2 class="section-title">Flori pentru fiecare<br />gust și sezon</h2>
+        </div>
+        <p class="section-desc">Toate plantele sunt cultivate în serele noastre – fără intermediari, cu prospețime garantată.</p>
+      </div>
+
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/flori-38.jpg" alt="Mușcate colorate" loading="lazy" />
+            <span class="product-card-tag">Bestseller</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">Mușcate</div>
+            <div class="product-card-desc">Simple, duble și cascade în zeci de culori vibrante. Ideale pentru balcon, terasă sau grădină.</div>
+            <div class="product-card-footer">
+              <span class="product-card-season">Primăvară – Toamnă</span>
+              <a href="https://wa.me/40770881974?text=Bună! Vreau informații despre mușcate." class="product-card-btn" target="_blank">Comandă</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/flori-24.jpg" alt="Petunii" loading="lazy" />
+            <span class="product-card-tag">Popular</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">Petunii</div>
+            <div class="product-card-desc">Petunia grandiflora și multiflora – rezistente, bogate în flori, perfecte la ghiveci suspendat.</div>
+            <div class="product-card-footer">
+              <span class="product-card-season">Primăvară – Vară</span>
+              <a href="https://wa.me/40770881974?text=Bună! Vreau informații despre petunii." class="product-card-btn" target="_blank">Comandă</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/flori-01.jpg" alt="Flori de grădină" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">Flori de grădină</div>
+            <div class="product-card-desc">Crăițe, verbene, impatiens, begonii și alte specii ornamentale pentru straturi și borduri.</div>
+            <div class="product-card-footer">
+              <span class="product-card-season">Sezon complet</span>
+              <a href="https://wa.me/40770881974?text=Bună! Vreau informații despre flori de grădină." class="product-card-btn" target="_blank">Comandă</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/flori-42.jpg" alt="Coșuri suspendate" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">Coșuri suspendate</div>
+            <div class="product-card-desc">Compoziții gata aranjate cu mușcate și petunii cascade – decorațiune instantanee pentru orice spațiu.</div>
+            <div class="product-card-footer">
+              <span class="product-card-season">Primăvară – Vară</span>
+              <a href="https://wa.me/40770881974?text=Bună! Vreau informații despre coșuri suspendate." class="product-card-btn" target="_blank">Comandă</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/flori-27.jpg" alt="Crizanteme" loading="lazy" />
+            <span class="product-card-tag">Toamnă</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">Crizanteme</div>
+            <div class="product-card-desc">Soiuri bogate în culori de toamnă – galben, portocaliu, bordo. Rezistente la frig.</div>
+            <div class="product-card-footer">
+              <span class="product-card-season">Septembrie – Noiembrie</span>
+              <a href="https://wa.me/40770881974?text=Bună! Vreau informații despre crizanteme." class="product-card-btn" target="_blank">Comandă</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/flori-06.jpg" alt="Plante la ghiveci" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-name">Plante la ghiveci</div>
+            <div class="product-card-desc">Plante decorative de interior și exterior – ideale ca dar sau pentru decorarea spațiului.</div>
+            <div class="product-card-footer">
+              <span class="product-card-season">Tot anul</span>
+              <a href="https://wa.me/40770881974?text=Bună! Vreau informații despre plante la ghiveci." class="product-card-btn" target="_blank">Comandă</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="despre">
+    <div class="container">
+      <div class="about-inner">
+
+        <div class="about-images">
+          <div class="about-img-main">
+            <img src="images/flori-04.jpg" alt="Seră Dudas Craiova" loading="lazy" style="height:100%;" />
+          </div>
+          <div class="about-img-accent">
+            <img src="images/flori-07.jpg" alt="Flori proaspete din seră" loading="lazy" style="height:100%;" />
+          </div>
+          <div class="about-badge">
+            <div class="about-badge-num">15+</div>
+            <div class="about-badge-text">ani de pasiune</div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="section-label">Povestea noastră</p>
+          <h2 class="section-title">Producători locali cu drag de flori</h2>
+          <p class="section-desc">
+            Sere Flori Dudas este o afacere de familie din Craiova, construită pe pasiunea pentru cultivarea florilor. Fiecare plantă pe care o ofrim trece prin mâinile noastre – de la sămânță până la ghiveciul din mâinile tale.
+          </p>
+          <p class="section-desc" style="margin-top:16px;">
+            Nu suntem revânzători. Cultivăm direct în serele noastre, ceea ce înseamnă prețuri corecte, calitate superioară și flori mereu proaspete.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">🌱</div>
+              <div>
+                <div class="about-feature-title">Cultivat direct în seră</div>
+                <div class="about-feature-desc">Niciun intermediar. De la noi, direct la tine – prospețime maximă.</div>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🚚</div>
+              <div>
+                <div class="about-feature-title">Livrare în Craiova și împrejurimi</div>
+                <div class="about-feature-desc">Aducem florile la ușa ta sau le poți ridica personal din seră.</div>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">📱</div>
+              <div>
+                <div class="about-feature-title">Comandă simplă pe WhatsApp</div>
+                <div class="about-feature-desc">Fără formulare complicate – trimite un mesaj și te răspundem rapid.</div>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🍂</div>
+              <div>
+                <div class="about-feature-title">Ofertă sezonieră actualizată</div>
+                <div class="about-feature-desc">Primăvară, vară sau toamnă – avem mereu ceva frumos disponibil.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== GALLERY ========== -->
+  <section class="gallery" id="galerie">
+    <div class="container">
+      <div class="gallery-header">
+        <p class="section-label">Galerie foto</p>
+        <h2 class="section-title">Din serele noastre</h2>
+        <p class="section-desc">Imagini reale din producția noastră – culori naturale, fără filtre.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-item--tall">
+          <img src="images/flori-02.jpg" alt="Seră Dudas – vedere generală" loading="lazy" style="height:100%;" />
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/flori-15.jpg" alt="Coșuri suspendate colorate" loading="lazy" style="height:100%;" />
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/flori-20.jpg" alt="Flori colorate în seră" loading="lazy" style="height:100%;" />
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item gallery-item--tall">
+          <img src="images/flori-44.jpg" alt="Coș suspendat roșu-roz" loading="lazy" style="height:100%;" />
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item gallery-item--wide">
+          <img src="images/flori-28.jpg" alt="Expoziție flori din seră" loading="lazy" style="height:100%;" />
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="how">
+    <div class="container">
+      <div class="how-header">
+        <p class="section-label">Cum funcționează</p>
+        <h2 class="section-title">Simplu, rapid, direct din seră</h2>
+        <p class="section-desc">Comandă florile tale în 4 pași simpli, fără complicații.</p>
+      </div>
+
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">01</div>
+          <div class="how-step-title">Ne contactezi</div>
+          <div class="how-step-desc">Pe WhatsApp, telefon sau Facebook – cum îți e mai comod.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">02</div>
+          <div class="how-step-title">Alegi florile</div>
+          <div class="how-step-desc">Îți prezentăm ce avem disponibil și stabilim cantitățile împreună.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">03</div>
+          <div class="how-step-title">Confirmăm comanda</div>
+          <div class="how-step-desc">Setăm ziua și modalitatea de livrare sau ridicare din seră.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">04</div>
+          <div class="how-step-title">Primești florile</div>
+          <div class="how-step-desc">Proaspete, bine ambalate, gata să coloreze grădina sau terasa ta.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <p class="section-label">Ce spun clienții</p>
+        <h2 class="section-title">Florile noastre vorbesc singure</h2>
+        <p class="section-desc">Mii de clienți mulțumiți din Craiova și împrejurimi ne recomandă.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">Am comandat mușcate și petunii pentru toată terasa. Au sosit proaspete, bine ambalate și exact cum mi-am dorit. Cu siguranță recomand!</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MA</div>
+            <div>
+              <div class="testimonial-name">Maria A.</div>
+              <div class="testimonial-loc">Craiova</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">Prețuri corecte, flori superbe și oameni de treabă. Am luat crizanteme pentru toamnă și arată magnific în grădină. Mulțumesc!</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">GI</div>
+            <div>
+              <div class="testimonial-name">Gheorghe I.</div>
+              <div class="testimonial-loc">Băilești</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">Le-am descoperit pe Facebook și nu am mai mers altundeva de atunci. Calitate excepțională și livrare promptă. Coșurile suspendate sunt o bijuterie!</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">EC</div>
+            <div>
+              <div class="testimonial-name">Elena C.</div>
+              <div class="testimonial-loc">Craiova</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== CTA BANNER ========== -->
+  <div class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-inner">
+        <h2>
+          Gata să îți colorezi<br />
+          <em>grădina și terasa?</em>
+        </h2>
+        <div class="cta-banner-actions">
+          <a href="https://wa.me/40770881974?text=Bună ziua! Vreau să comand flori. Ce aveți disponibil?" class="btn-wa" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp: 0770 881 974
+          </a>
+          <a href="tel:+40770881974" class="btn-call">
+            📞 Sună acum
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+
+        <div class="contact-info">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">Suntem la<br />un mesaj distanță</h2>
+          <p class="section-desc">Îți răspundem rapid pe WhatsApp, telefon sau e-mail. Vino și personal la seră!</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <div class="contact-item-label">Adresă seră</div>
+                <div class="contact-item-value">Sat Golumbu, Comuna Farcaș, Nr. 206<br />Județul Dolj, România, CP 205664</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📱</div>
+              <div>
+                <div class="contact-item-label">Telefon / WhatsApp</div>
+                <div class="contact-item-value"><a href="tel:+40770881974">0770 881 974</a></div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🕐</div>
+              <div>
+                <div class="contact-item-label">Program</div>
+                <div class="contact-item-value">Luni – Sâmbătă: 8:00 – 18:00<br />Duminică: 9:00 – 14:00</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📘</div>
+              <div>
+                <div class="contact-item-label">Facebook</div>
+                <div class="contact-item-value">
+                  <a href="https://www.facebook.com/serefloridudas" target="_blank" rel="noopener">facebook.com/serefloridudas</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://www.facebook.com/serefloridudas" class="social-btn" target="_blank" rel="noopener" title="Facebook">📘</a>
+            <a href="https://wa.me/40770881974" class="social-btn" target="_blank" rel="noopener" title="WhatsApp">📱</a>
+          </div>
+
+          <div style="margin-top:28px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);">
+            <iframe
+              src="https://maps.google.com/maps?q=Sat+Golumbu,+Comuna+Farcas,+Dolj,+Romania&output=embed&z=14"
+              width="100%" height="220" style="border:0;display:block;" allowfullscreen loading="lazy"
+              title="Localizare Sere Flori Dudas – Sat Golumbu, Farcaș, Dolj">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Trimite un mesaj</h3>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Nume</label>
+              <input type="text" placeholder="Numele tău" />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Telefon</label>
+              <input type="tel" placeholder="07XX XXX XXX" />
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:16px;">
+            <label>Ce te interesează?</label>
+            <select>
+              <option value="">— Alege categoria —</option>
+              <option>Mușcate</option>
+              <option>Petunii</option>
+              <option>Flori de grădină</option>
+              <option>Coșuri suspendate</option>
+              <option>Crizanteme</option>
+              <option>Plante la ghiveci</option>
+              <option>Altceva</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mesaj</label>
+            <textarea rows="4" placeholder="Spune-ne ce dorești – cantitate, culori preferate, dată livrare..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="sendWA()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Trimite pe WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-logo">
+            <div class="footer-brand-logo-icon">🌸</div>
+            <div class="footer-brand-logo-text">Sere Flori Dudas</div>
+          </div>
+          <p class="footer-brand-desc">Producător local de flori și plante ornamentale din Craiova. Cultivăm cu pasiune, livrăm cu grijă.</p>
+          <div style="display:flex;gap:10px;">
+            <a href="https://www.facebook.com/serefloridudas" class="social-btn" target="_blank" rel="noopener" style="background:rgba(255,255,255,.08);">📘</a>
+            <a href="https://wa.me/40770881974" class="social-btn" target="_blank" rel="noopener" style="background:rgba(255,255,255,.08);">📱</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produse</h4>
+          <ul class="footer-links">
+            <li><a href="#produse">Mușcate</a></li>
+            <li><a href="#produse">Petunii</a></li>
+            <li><a href="#produse">Flori de grădină</a></li>
+            <li><a href="#produse">Coșuri suspendate</a></li>
+            <li><a href="#produse">Crizanteme</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Informații</h4>
+          <ul class="footer-links">
+            <li><a href="#despre">Despre noi</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#contact">Cum comand?</a></li>
+            <li><a href="#contact">Livrare</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact rapid</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+40770881974">📞 0770 881 974</a></li>
+            <li><a href="https://wa.me/40770881974" target="_blank">💬 WhatsApp</a></li>
+            <li><a href="https://www.facebook.com/serefloridudas" target="_blank">📘 Facebook</a></li>
+            <li style="color:rgba(255,255,255,.5);font-size:.8rem;margin-top:4px;">Sat Golumbu, Com. Farcaș, Dolj</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Sere Flori Dudas. Toate drepturile rezervate.</p>
+        <ul class="footer-bottom-links">
+          <li><a href="#">Politica de confidențialitate</a></li>
+          <li><a href="#">Termeni și condiții</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========== FLOATING WHATSAPP ========== -->
+  <div class="wa-float">
+    <div class="wa-tooltip">Comandă pe WhatsApp 💬</div>
+    <a href="https://wa.me/40770881974?text=Bună ziua! Vreau să comand flori. Ce aveți disponibil?" class="wa-btn" target="_blank" rel="noopener" aria-label="Comandă pe WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+
+  <!-- ========== JS ========== -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      const hb = document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      hb.classList.toggle('open');
+    }
+
+    // WhatsApp form
+    function sendWA() {
+      const name = document.querySelector('input[type="text"]').value || 'Anonim';
+      const phone = document.querySelector('input[type="tel"]').value || 'nespecificat';
+      const category = document.querySelector('select').value || 'nespecificat';
+      const message = document.querySelector('textarea').value || '';
+      const text = `Bună ziua! Mă numesc ${name}, numărul meu este ${phone}.\nSunt interesat de: ${category}.\n${message}`;
+      window.open(`https://wa.me/40770881974?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Fade-in on scroll (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.product-card, .about-feature, .how-step, .testimonial-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
