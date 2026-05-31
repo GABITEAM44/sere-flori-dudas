@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabiteam44.github.io/sere-flori-dudas/sitemap.xml
