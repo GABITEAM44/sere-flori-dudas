@@ -1,0 +1,84 @@
+name: QA & Deploy – Sere Flori Dudas
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  # ─────────────────────────────────────────
+  # JOB 1: Validare HTML & Link-uri
+  # ─────────────────────────────────────────
+  validate:
+    name: Validare HTML & Accesibilitate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cod
+        uses: actions/checkout@v4
+
+      - name: Instalare Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalare unelte QA
+        run: npm install -g htmlhint broken-link-checker
+
+      - name: Validare sintaxă HTML
+        run: |
+          htmlhint index.html --rules \
+            "tagname-lowercase:true,attr-lowercase:true,attr-value-double-quotes:true,\
+            doctype-first:true,tag-pair:true,id-unique:true,\
+            alt-require:true,title-require:true"
+        continue-on-error: true
+
+      - name: Verificare imagini WebP existente
+        run: |
+          echo "Verificare fișiere WebP..."
+          for f in images/*.jpg; do
+            webp="${f%.jpg}.webp"
+            if [ -f "$webp" ]; then
+              echo "✅ $webp"
+            else
+              echo "❌ LIPSĂ: $webp"
+            fi
+          done
+
+      - name: Raport dimensiuni imagini
+        run: |
+          echo "=== Dimensiuni imagini ==="
+          du -sh images/*.webp 2>/dev/null | sort -h | tail -10
+          echo "Total folder images:"
+          du -sh images/
+
+  # ─────────────────────────────────────────
+  # JOB 2: Deploy automat pe GitHub Pages
+  # ─────────────────────────────────────────
+  deploy:
+    name: Deploy GitHub Pages
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout cod
+        uses: actions/checkout@v4
+
+      - name: Configurare GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy pe GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
