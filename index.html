@@ -239,10 +239,11 @@
     .hero {
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: 0;
+      padding: 100px 0 0;
       background: var(--green-dark);
     }
 
@@ -368,10 +369,11 @@
     }
 
     .hero-stats {
-      position: absolute;
-      bottom: 48px;
-      left: 0; right: 0;
+      position: relative;
       z-index: 2;
+      margin-top: auto;
+      padding: 40px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.1);
     }
 
     .hero-stats-inner {
@@ -1411,7 +1413,7 @@
 
     <div class="hero-stats">
       <div class="container">
-        <div class="hero-stats-inner">
+        <div class="hero-stats-inner" style="flex-wrap:wrap;">
           <div class="stat">
             <div class="stat-number">15+</div>
             <div class="stat-label">ani de experiență</div>
