@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview Hero Overlay – Sere Flori Dudas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #111; color: #fff; }
+
+    .page-title {
+      text-align: center;
+      padding: 32px 24px 16px;
+      font-size: 1.1rem;
+      color: #aaa;
+      letter-spacing: .05em;
+    }
+    .page-title strong { color: #fff; font-size: 1.4rem; display: block; margin-bottom: 8px; }
+
+    .variants { display: flex; flex-direction: column; gap: 0; }
+
+    .variant {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .variant-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ── Varianta A ── Gradient stânga */
+    .variant-a .variant-bg {
+      background-image:
+        linear-gradient(to right, rgba(26,61,43,.92) 0%, rgba(26,61,43,.72) 45%, rgba(0,0,0,.15) 100%),
+        url('images/hero-bg.jpg');
+    }
+
+    /* ── Varianta B ── Overlay negru minimal */
+    .variant-b .variant-bg {
+      background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.50)),
+        url('images/hero-bg.jpg');
+    }
+
+    /* ── Varianta C ── Gradient jos în sus */
+    .variant-c .variant-bg {
+      background-image:
+        linear-gradient(to top, rgba(20,40,30,.90) 0%, rgba(20,40,30,.55) 45%, rgba(0,0,0,.08) 100%),
+        url('images/hero-bg.jpg');
+    }
+
+    /* ── Varianta D ── Fără overlay, text cu shadow */
+    .variant-d .variant-bg {
+      background-image: url('images/hero-bg.jpg');
+    }
+
+    .variant-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .variant-label {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    .variant-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+
+    .variant-title em {
+      font-style: italic;
+      color: #f0d9a0;
+    }
+
+    .variant-sub {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 460px;
+      opacity: .85;
+    }
+
+    /* Varianta D — text cu shadow puternic */
+    .variant-d .variant-title,
+    .variant-d .variant-sub,
+    .variant-d .variant-label {
+      text-shadow: 0 2px 12px rgba(0,0,0,.8), 0 1px 4px rgba(0,0,0,.9);
+    }
+    .variant-d .variant-title em {
+      text-shadow: 0 2px 12px rgba(0,0,0,.8);
+    }
+
+    .btn-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      background: #52b788;
+      color: #1a3d2b;
+      box-shadow: 0 4px 20px rgba(82,183,136,.4);
+    }
+
+    /* Badge identificare variant */
+    .badge {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      z-index: 10;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+    .badge span {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #f0d9a0;
+      margin-right: 6px;
+    }
+
+    .divider {
+      height: 4px;
+      background: linear-gradient(to right, #1a3d2b, #52b788, #1a3d2b);
+    }
+
+    .nav-buttons {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 999;
+    }
+    .nav-btn {
+      background: rgba(0,0,0,.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-btn:hover { background: rgba(82,183,136,.6); }
+    .nav-btn.active { background: #52b788; color: #1a3d2b; }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">
+    <strong>Preview Variante Hero Overlay</strong>
+    Scroll jos pentru a vedea toate 4 variantele · Site-ul principal nu a fost modificat
+  </div>
+
+  <div class="variants">
+
+    <!-- ══════════ VARIANTA A ══════════ -->
+    <div class="variant variant-a">
+      <div class="variant-bg"></div>
+      <div class="badge"><span>A</span> Gradient stânga</div>
+      <div class="variant-content">
+        <div class="variant-label">• Producem flori pentru amenajarea casei voastre</div>
+        <h1 class="variant-title">
+          Flori naturale,<br>
+          <em>cultivate cu pasiune</em><br>
+          în Craiova
+        </h1>
+        <p class="variant-sub">Mușcate, petunii, flori de grădină și plante la ghiveci – direct din sera noastră la masa ta.</p>
+        <a href="#" class="btn-demo">📱 Comandă pe WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════ VARIANTA B ══════════ -->
+    <div class="variant variant-b">
+      <div class="variant-bg"></div>
+      <div class="badge"><span>B</span> Overlay negru minimal</div>
+      <div class="variant-content">
+        <div class="variant-label">• Producem flori pentru amenajarea casei voastre</div>
+        <h1 class="variant-title">
+          Flori naturale,<br>
+          <em>cultivate cu pasiune</em><br>
+          în Craiova
+        </h1>
+        <p class="variant-sub">Mușcate, petunii, flori de grădină și plante la ghiveci – direct din sera noastră la masa ta.</p>
+        <a href="#" class="btn-demo">📱 Comandă pe WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════ VARIANTA C ══════════ -->
+    <div class="variant variant-c">
+      <div class="variant-bg"></div>
+      <div class="badge"><span>C</span> Gradient jos în sus</div>
+      <div class="variant-content" style="margin-top: auto; align-self: flex-end; padding-bottom: 80px;">
+        <div class="variant-label">• Producem flori pentru amenajarea casei voastre</div>
+        <h1 class="variant-title">
+          Flori naturale,<br>
+          <em>cultivate cu pasiune</em><br>
+          în Craiova
+        </h1>
+        <p class="variant-sub">Mușcate, petunii, flori de grădină și plante la ghiveci – direct din sera noastră la masa ta.</p>
+        <a href="#" class="btn-demo">📱 Comandă pe WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════ VARIANTA D ══════════ -->
+    <div class="variant variant-d">
+      <div class="variant-bg"></div>
+      <div class="badge"><span>D</span> Fără overlay · Text cu shadow</div>
+      <div class="variant-content">
+        <div class="variant-label">• Producem flori pentru amenajarea casei voastre</div>
+        <h1 class="variant-title">
+          Flori naturale,<br>
+          <em>cultivate cu pasiune</em><br>
+          în Craiova
+        </h1>
+        <p class="variant-sub">Mușcate, petunii, flori de grădină și plante la ghiveci – direct din sera noastră la masa ta.</p>
+        <a href="#" class="btn-demo">📱 Comandă pe WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigare rapidă -->
+  <div class="nav-buttons">
+    <a href="#" class="nav-btn" onclick="scrollToVariant(0)">A</a>
+    <a href="#" class="nav-btn" onclick="scrollToVariant(1)">B</a>
+    <a href="#" class="nav-btn" onclick="scrollToVariant(2)">C</a>
+    <a href="#" class="nav-btn" onclick="scrollToVariant(3)">D</a>
+  </div>
+
+  <script>
+    function scrollToVariant(idx) {
+      const variants = document.querySelectorAll('.variant');
+      if (variants[idx]) variants[idx].scrollIntoView({ behavior: 'smooth' });
+      event.preventDefault();
+    }
+  </script>
+
+</body>
+</html>
