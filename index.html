@@ -785,8 +785,8 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 240px;
-      gap: 12px;
+      grid-auto-rows: 260px;
+      gap: 10px;
     }
 
     .gallery-item {
@@ -820,9 +820,6 @@
       font-size: 1.5rem;
       color: #fff;
     }
-
-    .gallery-item--tall { grid-row: span 2; }
-    .gallery-item--wide { grid-column: span 2; }
 
     /* Ascunde pozele peste primele 8 implicit */
     .gallery-grid:not(.gallery-expanded) .gallery-item:nth-child(n+9) {
@@ -1472,8 +1469,7 @@
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
       .how-steps { grid-template-columns: 1fr 1fr; }
       .how-steps::before { display: none; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item--wide { grid-column: span 1; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
     }
 
@@ -1485,8 +1481,7 @@
       .hero-stats-inner { gap: 24px; }
       .products-grid { grid-template-columns: 1fr 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .gallery-item--tall { grid-row: span 1; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
       .cta-banner-inner { flex-direction: column; text-align: center; }
       .footer-top { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -1495,7 +1490,7 @@
     @media (max-width: 480px) {
       .products-grid { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
       .hero-actions { flex-direction: column; }
       .hero-actions .btn-primary,
       .hero-actions .btn-outline { width: 100%; justify-content: center; }
@@ -2002,7 +1997,7 @@
           </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--wide" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
             <source srcset="images/galerie3.webp" type="image/webp" />
             <img src="images/galerie3.jpg" alt="Flori din sera Dudas - 3" loading="lazy" style="height:100%;" />
@@ -2023,7 +2018,7 @@
           </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--tall" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
             <source srcset="images/galerie6.webp" type="image/webp" />
             <img src="images/galerie6.jpg" alt="Flori din sera Dudas - 6" loading="lazy" style="height:100%;" />
@@ -2058,7 +2053,7 @@
           </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--wide" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
             <source srcset="images/galerie11.webp" type="image/webp" />
             <img src="images/galerie11.jpg" alt="Flori din sera Dudas - 11" loading="lazy" style="height:100%;" />
@@ -2079,7 +2074,7 @@
           </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--tall" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
             <source srcset="images/galerie14.webp" type="image/webp" />
             <img src="images/galerie14.jpg" alt="Flori din sera Dudas - 14" loading="lazy" style="height:100%;" />
@@ -2114,14 +2109,14 @@
           </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--wide" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
             <source srcset="images/galerie19.webp" type="image/webp" />
             <img src="images/galerie19.jpg" alt="Flori din sera Dudas - 19" loading="lazy" style="height:100%;" />
           </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--tall" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
             <source srcset="images/galerie20.webp" type="image/webp" />
             <img src="images/galerie20.jpg" alt="Flori din sera Dudas - 20" loading="lazy" style="height:100%;" />
