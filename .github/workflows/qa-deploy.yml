@@ -52,6 +52,28 @@ jobs:
           echo "Total folder images:"
           du -sh images/
 
+      - name: Verificare dimensiuni imagini WebP (max 1200px)
+        run: |
+          echo "=== Verificare dimensiuni imagini ==="
+          failed=0
+          for f in images/*.webp; do
+            width=$(python3 -c "from PIL import Image; img=Image.open('$f'); print(img.size[0])" 2>/dev/null || echo "0")
+            if [ "$width" -gt 1200 ] 2>/dev/null; then
+              echo "❌ Prea mare: $f ($width px)"
+              failed=1
+            else
+              echo "✅ OK: $f ($width px)"
+            fi
+          done
+          if [ "$failed" -eq 1 ]; then exit 1; fi
+        continue-on-error: true
+
+      - name: Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun --upload.target=temporary-public-storage --collect.url=https://gabiteam44.github.io/sere-flori-dudas/ --collect.numberOfRuns=1 || true
+        continue-on-error: true
+
   # ─────────────────────────────────────────
   # JOB 2: Deploy automat pe GitHub Pages
   # ─────────────────────────────────────────

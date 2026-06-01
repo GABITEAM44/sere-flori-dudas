@@ -1457,6 +1457,95 @@
       .testimonials-grid { grid-template-columns: 1fr; }
     }
 
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      background: var(--green-dark);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: .88rem;
+      font-weight: 500;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: opacity .3s ease, transform .3s ease;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.92);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .lightbox-overlay.open { opacity: 1; pointer-events: all; }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      opacity: .8;
+      transition: opacity .2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+
+    /* GDPR Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--green-dark);
+      color: rgba(255,255,255,.9);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      z-index: 9998;
+      font-size: .85rem;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.15);
+      transform: translateY(0);
+      transition: transform .4s ease;
+    }
+    .cookie-banner.hidden { transform: translateY(110%); }
+    .cookie-banner a { color: var(--green-light); text-decoration: underline; }
+    .cookie-accept {
+      background: var(--green-light);
+      color: var(--green-dark);
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: .85rem;
+      transition: background .2s;
+    }
+    .cookie-accept:hover { background: #fff; }
+
     /* ── Telefoane foarte mici: 320px – 375px ── */
     @media (max-width: 375px) {
       .container { padding: 0 16px; }
@@ -1514,7 +1603,7 @@
   <div class="mobile-nav" id="mobileNav">
     <button onclick="toggleMenu()" aria-label="Închide meniu"
       style="position:absolute;top:20px;right:24px;background:none;border:none;
-             font-size:1.6rem;cursor:pointer;color:var(--text-dark);line-height:1;">✕</button>
+             font-size:1.6rem;cursor:pointer;color:var(--text-dark);line-height:1;">&times;</button>
     <ul>
       <li><a href="#produse" onclick="toggleMenu()">🌸 Produse</a></li>
       <li><a href="#despre" onclick="toggleMenu()">🌿 Despre noi</a></li>
@@ -1823,35 +1912,35 @@
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item gallery-item--tall">
+        <div class="gallery-item gallery-item--tall" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
               <source srcset="images/flori-02.webp" type="image/webp" />
               <img src="images/flori-02.jpg" alt="Seră Dudas – vedere generală" loading="lazy" style="height:100%;" />
             </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
               <source srcset="images/flori-15.webp" type="image/webp" />
               <img src="images/flori-15.jpg" alt="Coșuri suspendate colorate" loading="lazy" style="height:100%;" />
             </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
               <source srcset="images/flori-20.webp" type="image/webp" />
               <img src="images/flori-20.jpg" alt="Flori colorate în seră" loading="lazy" style="height:100%;" />
             </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--tall">
+        <div class="gallery-item gallery-item--tall" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
               <source srcset="images/flori-44.webp" type="image/webp" />
               <img src="images/flori-44.jpg" alt="Coș suspendat roșu-roz" loading="lazy" style="height:100%;" />
             </picture>
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
-        <div class="gallery-item gallery-item--wide">
+        <div class="gallery-item gallery-item--wide" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
           <picture style="height:100%;display:block;width:100%;">
               <source srcset="images/flori-28.webp" type="image/webp" />
               <img src="images/flori-28.jpg" alt="Expoziție flori din seră" loading="lazy" style="height:100%;" />
@@ -2148,6 +2237,18 @@
   </div>
 
 
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Previzualizare imagine" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Închide">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- GDPR Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="alert" aria-live="polite">
+    <p>🍪 Folosim <strong>Google Fonts</strong> care poate plasa cookie-uri tehnice. Prin continuarea navigării ești de acord. <a href="politica-confidentialitate.html">Politică de confidențialitate</a></p>
+    <button class="cookie-accept" onclick="acceptCookies()" aria-label="Acceptă și închide bannerul">Înțeleg</button>
+  </div>
+
   <!-- ========== JS ========== -->
   <script>
     // aria-current="true" dinamic pe link-urile navbar la scroll
@@ -2190,6 +2291,72 @@
       nav.classList.toggle('open');
       hb.classList.toggle('open');
     }
+
+    // Swipe-to-close mobile nav
+    (function() {
+      let touchStartX = 0;
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      mobileNav.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].clientX - touchStartX;
+        if (diff > 80) toggleMenu(); // swipe right → close
+      }, { passive: true });
+    })();
+
+    // Toast notification
+    function showToast(msg) {
+      let toast = document.getElementById('site-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'site-toast';
+        toast.className = 'toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    function sendWA() {
+      const name = document.getElementById('contact-name').value || 'Anonim';
+      const phone = document.getElementById('contact-phone').value || 'nespecificat';
+      const category = document.getElementById('contact-category').value || 'nespecificat';
+      const message = document.getElementById('contact-message').value || '';
+      const text = `Bună ziua! Mă numesc ${name}, numărul meu este ${phone}.\nSunt interesat de: ${category}.\n${message}`;
+      window.open(`https://wa.me/40770881974?text=${encodeURIComponent(text)}`, '_blank');
+      showToast('✅ Mesajul tău se deschide în WhatsApp!');
+    }
+
+    // Lightbox
+    function openLightbox(src, alt) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // GDPR Cookie Banner
+    (function() {
+      function acceptCookies() {
+        document.getElementById('cookieBanner').classList.add('hidden');
+        localStorage.setItem('cookie-consent', '1');
+      }
+      window.acceptCookies = acceptCookies;
+      if (localStorage.getItem('cookie-consent')) {
+        const b = document.getElementById('cookieBanner');
+        if (b) b.classList.add('hidden');
+      }
+    })();
 
     // WhatsApp form – validare + trimitere
     (function() {
