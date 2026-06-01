@@ -824,6 +824,38 @@
     .gallery-item--tall { grid-row: span 2; }
     .gallery-item--wide { grid-column: span 2; }
 
+    /* Ascunde pozele peste primele 8 implicit */
+    .gallery-grid:not(.gallery-expanded) .gallery-item:nth-child(n+9) {
+      display: none;
+    }
+
+    /* Buton Mai Multe / Mai Putine */
+    .gallery-toggle {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .gallery-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid var(--green-light);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      letter-spacing: .03em;
+    }
+    .gallery-toggle-btn:hover {
+      background: var(--green-light);
+      color: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
     /* =============================================
        HOW IT WORKS
     ============================================= */
@@ -2139,34 +2171,12 @@
           <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
         </div>
       </div>
-        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
-          <picture style="height:100%;display:block;width:100%;">
-              <source srcset="images/flori-15.webp" type="image/webp" />
-              <img src="images/flori-15.jpg" alt="Ghivece suspendate colorate" loading="lazy" style="height:100%;" />
-            </picture>
-          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
-          <picture style="height:100%;display:block;width:100%;">
-              <source srcset="images/flori-20.webp" type="image/webp" />
-              <img src="images/flori-20.jpg" alt="Flori colorate în seră" loading="lazy" style="height:100%;" />
-            </picture>
-          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-        </div>
-        <div class="gallery-item gallery-item--tall" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
-          <picture style="height:100%;display:block;width:100%;">
-              <source srcset="images/flori-44.webp" type="image/webp" />
-              <img src="images/flori-44.jpg" alt="Coș suspendat roșu-roz" loading="lazy" style="height:100%;" />
-            </picture>
-          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-        </div>
-        <div class="gallery-item gallery-item--wide" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src, this.querySelector('img').alt)">
-          <picture style="height:100%;display:block;width:100%;">
-              <source srcset="images/flori-28.webp" type="image/webp" />
-              <img src="images/flori-28.jpg" alt="Expoziție flori din seră" loading="lazy" style="height:100%;" />
-            </picture>
-          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-        </div>
+
+      <!-- Buton Mai Multe / Mai Puține -->
+      <div class="gallery-toggle">
+        <button class="gallery-toggle-btn" id="galleryToggleBtn" onclick="toggleGallery()">
+          🌸 Mai multe fotografii <span id="galleryCount">(17 rămase)</span>
+        </button>
       </div>
     </div>
   </section>
@@ -2549,6 +2559,21 @@
       const text = `Bună ziua! Mă numesc ${name}, numărul meu este ${phone}.\nSunt interesat de: ${category}.\n${message}`;
       window.open(`https://wa.me/40770881974?text=${encodeURIComponent(text)}`, '_blank');
       showToast('✅ Mesajul tău se deschide în WhatsApp!');
+    }
+
+    // Galerie – Mai multe / Mai puține
+    function toggleGallery() {
+      const grid = document.querySelector('.gallery-grid');
+      const btn  = document.getElementById('galleryToggleBtn');
+      const span = document.getElementById('galleryCount');
+      const expanded = grid.classList.toggle('gallery-expanded');
+      if (expanded) {
+        btn.innerHTML = '🌿 Mai puține fotografii';
+      } else {
+        btn.innerHTML = '🌸 Mai multe fotografii <span id="galleryCount">(17 rămase)</span>';
+        // Scroll inapoi la galerie
+        document.getElementById('galerie').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     // Lightbox
