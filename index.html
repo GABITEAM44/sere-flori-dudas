@@ -76,6 +76,27 @@
 
     html { scroll-behavior: smooth; }
 
+    /* ── Skip Navigation (accesibilitate) ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      background: var(--green-dark);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 0 0 8px 8px;
+      font-weight: 600;
+      font-size: .9rem;
+      z-index: 9999;
+      transition: top .2s ease;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid var(--green-light);
+      outline-offset: 2px;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--warm-white);
@@ -1376,6 +1397,9 @@
 </head>
 <body>
 
+  <!-- Skip Navigation – accesibilitate tastatură/screen reader -->
+  <a href="#main" class="skip-link">Sari la conținutul principal</a>
+
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">
@@ -1509,7 +1533,7 @@
 
 
   <!-- ========== PRODUCTS ========== -->
-  <main role="main">
+  <main id="main" role="main">
   <section class="products" id="produse">
     <div class="container">
       <div class="products-header">
