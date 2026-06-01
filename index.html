@@ -343,16 +343,18 @@
       background: url('images/hero-bg.jpg') center/cover no-repeat;
     }
 
-    /* Overlay subtil DOAR pentru contrast text — pozele raman vizibile */
+    /* Overlay contrast: intuneric sus (navbar) + mijloc deschis + intuneric jos (stats) */
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(0,0,0,.30) 0%,
-        rgba(0,0,0,.20) 50%,
-        rgba(0,0,0,.35) 100%
+        rgba(0,0,0,.70) 0%,      /* navbar - intuneric pentru text */
+        rgba(0,0,0,.45) 12%,
+        rgba(0,0,0,.20) 40%,     /* mijloc - pozele se vad clar */
+        rgba(0,0,0,.20) 65%,
+        rgba(0,0,0,.50) 100%     /* stats jos - contrast */
       );
     }
 
