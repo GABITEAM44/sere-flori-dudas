@@ -1368,11 +1368,12 @@
     .wa-float {
       position: fixed;
       bottom: 28px;
-      left: 28px;
+      right: 28px;
+      left: auto;
       z-index: 9999;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       gap: 10px;
     }
 
@@ -1385,7 +1386,7 @@
       border-radius: 50px;
       box-shadow: var(--shadow-md);
       opacity: 0;
-      transform: translateX(-10px);
+      transform: translateX(10px);
       transition: var(--transition);
       pointer-events: none;
     }
@@ -1579,6 +1580,8 @@
       transition: transform .4s ease;
     }
     .cookie-banner p { margin: 0; flex: 1; min-width: 0; }
+    /* Ridică WA flotant deasupra cookie banner când acesta e vizibil */
+    body:not(.cookies-accepted) .wa-float { bottom: 90px; }
     .cookie-banner.hidden { transform: translateY(110%); }
     .cookie-banner a { color: var(--green-light); text-decoration: underline; }
     .cookie-accept {
@@ -2606,12 +2609,14 @@
     (function() {
       function acceptCookies() {
         document.getElementById('cookieBanner').classList.add('hidden');
+        document.body.classList.add('cookies-accepted');
         localStorage.setItem('cookie-consent', '1');
       }
       window.acceptCookies = acceptCookies;
       if (localStorage.getItem('cookie-consent')) {
         const b = document.getElementById('cookieBanner');
         if (b) b.classList.add('hidden');
+        document.body.classList.add('cookies-accepted');
       }
     })();
 
