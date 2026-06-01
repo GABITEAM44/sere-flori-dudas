@@ -2037,11 +2037,18 @@
 
   <!-- ========== JS ========== -->
   <script>
-    // Navbar scroll effect
+    // Navbar scroll effect — throttled cu requestAnimationFrame (max 1x/frame)
     const navbar = document.getElementById('navbar');
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          navbar.classList.toggle('scrolled', window.scrollY > 40);
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
 
     // Mobile menu
     function toggleMenu() {
@@ -2096,22 +2103,31 @@
       });
     });
 
-    // Fade-in on scroll (Intersection Observer)
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
+    // Fade-in on scroll — lazy init cu requestIdleCallback + feature detection
+    const initFadeObserver = () => {
+      if (!('IntersectionObserver' in window)) return; // fallback: elemente rămân vizibile
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            observer.unobserve(e.target); // stop observing după animație
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.product-card, .about-feature, .how-step, .testimonial-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity .5s ease, transform .5s ease';
-      observer.observe(el);
-    });
+      document.querySelectorAll('.product-card, .about-feature, .how-step, .testimonial-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity .5s ease, transform .5s ease';
+        observer.observe(el);
+      });
+    };
+
+    // Amână inițializarea până când browserul e idle
+    'requestIdleCallback' in window
+      ? requestIdleCallback(initFadeObserver, { timeout: 1000 })
+      : setTimeout(initFadeObserver, 200);
   </script>
 
 </body>
